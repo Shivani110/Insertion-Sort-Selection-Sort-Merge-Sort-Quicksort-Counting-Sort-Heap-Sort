@@ -1,0 +1,42 @@
+<html>
+<body>
+<script>
+function swap(ar, p, q)
+{
+	var t = ar[p];
+	ar[p] = ar[q];
+	ar[q] = t;
+}
+
+function Selection(ar, x)
+{
+	var a, b, low;
+	
+	for (a = 0; a < x-1; a++)
+	{
+		low = a;
+		for (b = a + 1; b < x; b++)
+		if (ar[b] < ar[low])
+			low = b;
+		swap(ar,low, a);
+	}
+}
+
+function S( ar, z)
+{
+	var a;
+	for (a = 0; a < z; a++)
+		document.write(ar[a] + " ");
+	document.write(" <br>");
+}
+
+var ar = [30, 20, 5, 10, 11];
+	var x = 5;
+	Selection(ar, x);
+	document.write("The array after sorting:");
+	document.write("<br>");
+	S(ar,x);
+</script>
+</body>
+</html>	
+	
