@@ -1,0 +1,51 @@
+<html>
+<body>
+<script>
+function swap(ar, p, q) 
+{
+	var x = ar[p];
+	ar[p] = ar[q];
+	ar[q] = x;
+}
+function partition(ar, h, l) 
+{
+	var pv = ar[l];
+	var a = (h - 1);
+
+	for (var b = h; b <= l; b++) 
+	{
+        if (ar[b] < pv) 
+		{
+            a++;
+			swap(ar, a, b);
+		}
+	}
+	swap(ar, a + 1, l);
+	return (a + 1);
+}
+function Quick_sortt(ar, h, l) 
+{
+	if (h < l) 
+	{
+		let y = partition(ar, h, l);
+		Quick_sortt(ar, h, y - 1);
+		Quick_sortt(ar, y + 1, l);
+	}
+}
+
+function Se(ar, s) 
+{
+   for (var a = 0; a < s; a++)
+		document.write(ar[a] + " ");
+    document.write("<br>");
+}
+
+let ar = [5, 8, 1, 10, 2, 6];
+let z = ar.length;
+
+Quick_sortt(ar, 0, z - 1);
+document.write("The array after sorting: <br>");
+Se(ar, z);
+</script>
+</body>
+<html>
