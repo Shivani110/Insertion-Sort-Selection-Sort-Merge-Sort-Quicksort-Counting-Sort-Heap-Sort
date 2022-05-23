@@ -1,0 +1,52 @@
+<html>
+<body>
+<script>
+var n;
+function Heapp(ar, z) 
+{
+    var h = 2 * z + 1;
+    var l = 2 * z + 2;
+    var m = z;
+
+    if (h < n && ar[h] > ar[m]) 
+    {
+        m = h;
+    }
+
+    if (l < n && ar[l] > ar[m])     
+    {
+       m = l;
+    }
+
+    if (m != z) 
+    {
+        S(ar, z, m);
+        Heapp(ar, m);
+    }
+}
+function S(ar, p, z) 
+{
+    var s = ar[p];
+    ar[p] = ar[z];
+    ar[z] = s;
+}
+function Heapp_Sortt(ar) 
+{
+    n = ar.length;
+    for (var z = Math.floor(n / 2); z >= 0; z -= 1)      
+    {
+        Heapp(ar, z);
+    }
+    for (z = ar.length - 1; z > 0; z--) 
+    {
+        S(ar, 0, z);
+        n--;
+        Heapp(ar, 0);
+    }
+}
+var ar = [11, 21, 6, 1, 8, 15 ];
+Heapp_Sortt(ar);
+document.write(ar);
+</script>
+</body>
+</html>
