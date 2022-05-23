@@ -1,0 +1,35 @@
+<html>
+<body>
+<script>
+function Merge_Sortt(first,last) 
+{
+	let a = 0;
+	let b = 0;
+	let z = [];
+
+	while (a < first.length || b < last.length) 
+	{
+		if (a === first.length) 
+		{
+			z.push(last[b]);
+			b++;
+		} 
+      else if (b === last.length || first[a] <= last[b]) 
+      {
+			z.push(first[a]);
+			a++;
+		} 
+		else 
+		{
+		    z.push(last[b]);
+			b++;
+		}
+	}
+	return z;
+}
+
+document.write(Merge_Sortt([2,6,10], [3,9,11]));
+
+</script>
+</body>
+</html>
