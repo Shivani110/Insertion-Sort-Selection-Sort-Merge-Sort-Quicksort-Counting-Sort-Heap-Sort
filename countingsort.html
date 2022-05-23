@@ -1,0 +1,33 @@
+<html>
+<body>
+<script>
+function Counting_Sortt(ar, l, h)
+  {
+    var x, y = 0, a = [];
+ 
+    for (x = l; x <= h; x++) 
+    {
+        a[x] = 0;
+    }
+ 
+    for (x=0; x < ar.length; x++) 
+    {
+        a[ar[x]]++;
+    }
+ 
+    for (x = l; x <= h; x++) 
+    {
+        while (a[x]-- > 0) 
+        {
+            ar[y++] = x;
+        }
+    }
+ return ar;
+}
+var A = [13, 4, 2, 1, 11, 2, 6];
+
+document.write("The array elements after sorting:<br>"); 
+document.write(Counting_Sortt(A, 0, 5));
+</script>
+</body>
+</html>
